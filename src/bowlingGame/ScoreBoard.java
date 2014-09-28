@@ -53,13 +53,16 @@ public class ScoreBoard {
 		}}}
 	
 	void afterLastFrame(){
+		/*
 		if(f[8].score.status == FrameStatus.NOTYET){
 			f[10]=new Frame(f[0].player,11);
 			f[10].frameIn();
 			workingFrames();
 			
 		}
-		if(f[9].score.status == FrameStatus.NOTYET){
+		*/
+		if((f[8].score.status == FrameStatus.NOTYET) ||
+				(f[9].score.status == FrameStatus.NOTYET)){
 			f[10]=new Frame(f[0].player,11);
 			f[10].frameIn();
 			workingFrames();
