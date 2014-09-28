@@ -3,7 +3,7 @@ package bowlingGame;
 public class ScoreBoard {
 	
 	final int FRAME_NUM = 10;
-	Frame f [] = new Frame[FRAME_NUM];
+	Frame f [] = new Frame[FRAME_NUM+1];
 	int currentFrame = 1;	
 	int currentFrameA = 0;
 	int preFrameA = currentFrameA -1;
@@ -18,12 +18,12 @@ public class ScoreBoard {
 		f[currentFrame-1].frameIn();
 		workingFrames();
 		currentFrame++; currentFrameA++;preFrameA++;prepreFrameA++;
+		if(currentFrame == 11) afterLastFrame();
 	}
 	
 	void workingFrames(){
 		withPreFrames();
 		withPostFrames();
-		if(currentFrame == 10) afterLastFrame();
 	}
 	
 	void withPreFrames(){
@@ -54,9 +54,15 @@ public class ScoreBoard {
 	
 	void afterLastFrame(){
 		if(f[8].score.status == FrameStatus.NOTYET){
-			Frame bonusframe = new Frame(-1,-1);
-			bonusframe.frameIn();
-			withPreFrames();
+			f[10]=new Frame(f[0].player,11);
+			f[10].frameIn();
+			workingFrames();
+			
+		}
+		if(f[9].score.status == FrameStatus.NOTYET){
+			f[10]=new Frame(f[0].player,11);
+			f[10].frameIn();
+			workingFrames();
 		}
 	}
 }

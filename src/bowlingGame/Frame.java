@@ -24,11 +24,7 @@ public class Frame {
 	
 	
 	void firstStroke(int fallenPins){
-		
-		if ((fallenPins < 0) || (fallenPins > 10)){
-			//다시치게 한다.
-		} 
-		
+	
 		score.recordScore(1,fallenPins);
 		leftPins = 10-fallenPins;
 		
@@ -39,12 +35,8 @@ public class Frame {
 	} 
 	
 	void secondStroke(int fallenPins){
+	
 		this.secondStrokeIsDone = true;
-		
-		if((fallenPins<0)||(fallenPins>leftPins)){
-			//다시 치게한다.
-		}
-		
 		score.recordScore(2,fallenPins);
 		
 		if(fallenPins == leftPins){
